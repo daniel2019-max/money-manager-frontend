@@ -1,8 +1,8 @@
-import { LoginInputType } from './../domain/symbol/login.interface';
-import { environment } from './../../../environments/environment.prod';
-import { Injectable } from '@angular/core';
-// import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { LoginInputType } from '../domain/symbol/login.interface';
+import {environment} from "../../../environments/environment";
 
 
 @Injectable({
@@ -11,9 +11,9 @@ import { Observable } from "rxjs";
 export class AuthHttp {
   private url = environment.BASE_URL + '/auth';
 
-  // constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
-  // login(payload: LoginInputType): Observable<any> {
-  //   return this.http.post<any>(this.url + '/login', payload);
-  // }
+  login(payload: LoginInputType): Observable<any> {
+    return this.http.post<any>(this.url + '/login', payload);
+  }
 }

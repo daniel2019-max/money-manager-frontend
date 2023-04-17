@@ -12,3 +12,32 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+
+@layer components {
+  .card {
+    @apply flex flex-col rounded-2xl relative px-4 py-4 my-2;
+  }
+
+  .card-white {
+    @apply bg-white shadow-2xl rounded-2xl;
+  }
+}
+
+.btn {
+  @apply shadow-xl py-1.5 px-3 text-center text-white rounded-2xl align-middle font-sans cursor-pointer inline-block;
+}
+
+/* size buttons */
+.btn-sm {
+  @apply px-2 py-1 text-sm;
+}
+
+.btn-lg {
+  @apply px-4 py-2 text-lg;
+}
+
+.btn:disabled {
+  @apply opacity-60
+}
+

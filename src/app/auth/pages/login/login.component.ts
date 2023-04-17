@@ -1,5 +1,6 @@
-import { LoginPresenter } from './login.presenter';
-import { Component, OnInit } from '@angular/core';
+import {LoginPresenter} from './login.presenter';
+import {Component, OnInit} from '@angular/core';
+import {LoginInputType} from "@auth/domain/symbol/login.interface";
 
 @Component({
   selector: 'app-login',
@@ -7,18 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
   providers: [LoginPresenter]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  viewState$ = this.presenter.viewState;
 
-  constructor(private readonly presenter: LoginPresenter) { }
 
-  ngOnInit(): void {
+  constructor(private readonly presenter: LoginPresenter) {
   }
 
-  saveToken() {
-    localStorage.setItem('token', 'daniel');
+  submitForm(form: LoginInputType): void {
+    this.presenter.login(form);
   }
-  getToken() {
-    const token = localStorage.getItem('token');
-    alert(token)
+
+  closeModal(){
+    console.log('close modal')
   }
+
 }
