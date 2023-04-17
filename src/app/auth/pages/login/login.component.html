@@ -1,0 +1,10 @@
+<div [ngClass]="{'hidden':viewState$.loading}">
+  <app-login-card-form (emitForm)="submitForm($event)"
+                       [viewState]="viewState$">
+  </app-login-card-form>
+</div>
+
+
+
+
+
